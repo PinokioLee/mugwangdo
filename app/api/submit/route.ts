@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     name?: string;
     region_sido?: string;
     region_gugun?: string;
-    description?: string;
+    must_eat?: string;
     fingerprint?: string;
   };
 
@@ -38,14 +38,14 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "잘못된 요청입니다." }, { status: 400 });
   }
 
-  const { name, region_sido, region_gugun, description, fingerprint } = body;
+  const { name, region_sido, region_gugun, must_eat, fingerprint } = body;
 
-  if (!name || !region_sido || !region_gugun || !description) {
+  if (!name || !region_sido || !region_gugun || !must_eat) {
     return NextResponse.json({ error: "필수 항목을 모두 입력해주세요." }, { status: 400 });
   }
 
-  if (description.length > 20) {
-    return NextResponse.json({ error: "한줄 추천은 20자 이내로 입력해주세요." }, { status: 400 });
+  if (must_eat.length > 20) {
+    return NextResponse.json({ error: "20자 이내로 입력해주세요." }, { status: 400 });
   }
 
   const ip = getClientIp(req);
@@ -73,7 +73,7 @@ export async function POST(req: NextRequest) {
     name_normalized,
     region_sido,
     region_gugun,
-    description,
+    must_eat,
     ip_hash,
     fingerprint: fingerprint ?? null,
   });

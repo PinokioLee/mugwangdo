@@ -9,7 +9,7 @@ export default function Home() {
   const [name, setName] = useState("");
   const [sido, setSido] = useState("");
   const [gugun, setGugun] = useState("");
-  const [description, setDescription] = useState("");
+  const [mustEat, setMustEat] = useState("");
   const [formState, setFormState] = useState<FormState>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [fingerprint, setFingerprint] = useState("");
@@ -39,8 +39,8 @@ export default function Home() {
     name.trim().length > 0 &&
     sido.length > 0 &&
     gugun.length > 0 &&
-    description.trim().length > 0 &&
-    description.trim().length <= 20;
+    mustEat.trim().length > 0 &&
+    mustEat.trim().length <= 20;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -57,7 +57,7 @@ export default function Home() {
           name: name.trim(),
           region_sido: sido,
           region_gugun: gugun,
-          description: description.trim(),
+          must_eat: mustEat.trim(),
           fingerprint,
         }),
       });
@@ -82,7 +82,7 @@ export default function Home() {
     setName("");
     setSido("");
     setGugun("");
-    setDescription("");
+    setMustEat("");
     setFormState("idle");
     setErrorMsg("");
   };
@@ -168,22 +168,7 @@ export default function Home() {
         {/* 폼 — 왼쪽 정렬 유지 */}
         <form onSubmit={handleSubmit}>
 
-          <div style={{ marginBottom: "36px" }}>
-            <label style={{ display: "block", fontSize: "12px", color: "#666", letterSpacing: "0.1em", marginBottom: "4px" }}>
-              상호명
-            </label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="가게 이름을 적어주세요"
-              maxLength={50}
-              style={inputBase}
-              onFocus={(e) => { e.currentTarget.style.borderBottom = "2px solid #000"; }}
-              onBlur={(e) => { e.currentTarget.style.borderBottom = "1px solid #333"; }}
-            />
-          </div>
-
+          {/* 1. 지역 */}
           <div style={{ marginBottom: "36px" }}>
             <label style={{ display: "block", fontSize: "12px", color: "#666", letterSpacing: "0.1em", marginBottom: "4px" }}>
               지역
@@ -217,16 +202,34 @@ export default function Home() {
             </div>
           </div>
 
+          {/* 2. 상호명 */}
           <div style={{ marginBottom: "36px" }}>
             <label style={{ display: "block", fontSize: "12px", color: "#666", letterSpacing: "0.1em", marginBottom: "4px" }}>
-              한 줄 기억
+              상호명
+            </label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="가게 이름을 적어주세요"
+              maxLength={50}
+              style={inputBase}
+              onFocus={(e) => { e.currentTarget.style.borderBottom = "2px solid #000"; }}
+              onBlur={(e) => { e.currentTarget.style.borderBottom = "1px solid #333"; }}
+            />
+          </div>
+
+          {/* 3. 뭐먹어? */}
+          <div style={{ marginBottom: "36px" }}>
+            <label style={{ display: "block", fontSize: "12px", color: "#666", letterSpacing: "0.1em", marginBottom: "4px" }}>
+              뭐먹어?
             </label>
             <div style={{ position: "relative" }}>
               <input
                 type="text"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                placeholder="왜 기억나는지 한 줄로 (20자 이내)"
+                value={mustEat}
+                onChange={(e) => setMustEat(e.target.value)}
+                placeholder="꼭 먹어야 할 메뉴는? (20자 이내)"
                 maxLength={20}
                 style={inputBase}
                 onFocus={(e) => { e.currentTarget.style.borderBottom = "2px solid #000"; }}
@@ -237,9 +240,9 @@ export default function Home() {
                 right: 0,
                 bottom: "12px",
                 fontSize: "11px",
-                color: description.length >= 20 ? "#c00" : "#BBB",
+                color: mustEat.length >= 20 ? "#c00" : "#BBB",
               }}>
-                {description.length}/20
+                {mustEat.length}/20
               </span>
             </div>
           </div>
