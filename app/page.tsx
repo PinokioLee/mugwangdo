@@ -108,13 +108,13 @@ export default function Home() {
   };
 
   const Header = () => (
-    <header style={{ marginBottom: "48px", textAlign: "center" }}>
-      <div style={{ display: "inline-flex", alignItems: "baseline", gap: "10px" }}>
-        <span style={{ fontSize: "28px", fontWeight: 700, color: "#111", letterSpacing: "-0.02em" }}>무광도</span>
-        <span style={{ fontSize: "18px", fontWeight: 400, color: "#555", letterSpacing: "0.05em" }}>無廣圖</span>
+    <header style={{ marginBottom: "44px", textAlign: "center" }}>
+      <div style={{ display: "inline-flex", alignItems: "baseline", gap: "8px" }}>
+        <span style={{ fontSize: "18px", fontWeight: 700, color: "#111", letterSpacing: "-0.01em" }}>무광도</span>
+        <span style={{ fontSize: "13px", fontWeight: 400, color: "#888", letterSpacing: "0.04em" }}>無廣圖</span>
       </div>
-      <div style={{ fontSize: "12px", color: "#888", marginTop: "5px", letterSpacing: "0.03em" }}>광고 없는 진짜 맛집 지도</div>
-      <div style={{ borderBottom: "1px solid #E0E0E0", marginTop: "14px" }} />
+      <div style={{ fontSize: "11px", color: "#aaa", marginTop: "4px", letterSpacing: "0.03em" }}>광고 없는 진짜 맛집 지도</div>
+      <div style={{ borderBottom: "1px solid #E0E0E0", marginTop: "12px" }} />
     </header>
   );
 
@@ -124,7 +124,7 @@ export default function Home() {
         <div style={{ maxWidth: "480px", margin: "0 auto", padding: "60px 32px", textAlign: "center" }}>
           <Header />
           <div style={{ paddingTop: "40px" }}>
-            <div style={{ fontSize: "36px", fontWeight: 700, color: "#111", lineHeight: 1.5, marginBottom: "32px" }}>
+            <div style={{ fontSize: "34px", fontWeight: 700, color: "#111", lineHeight: 1.5, marginBottom: "32px" }}>
               기록했어,<br />고마워!
             </div>
             <p style={{ fontSize: "15px", color: "#888", lineHeight: 1.8, marginBottom: "48px" }}>
@@ -160,8 +160,8 @@ export default function Home() {
 
         {/* 메인 카피 — 가운데 정렬 */}
         <div style={{ marginBottom: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "26px", fontWeight: 700, color: "#111", lineHeight: 1.6, margin: 0 }}>
-            아무도 알려주기 싫은<br />나만의 찐 맛집만 알려주세요.
+          <h1 style={{ fontSize: "30px", fontWeight: 700, color: "#111", lineHeight: 1.5, margin: 0 }}>
+            아무도 알려주기 싫은<br />나만의 찐 맛집만<br />알려주세요.
           </h1>
         </div>
 
